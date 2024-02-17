@@ -1,10 +1,11 @@
 pipeline {
-    agent any 
+    agent any
   
     parameters {
-        string(name: 'SPEC', defaultValue: 'cypress/e2e/WebApplictaions/**/**', description: 'Enter the file')
+        string(name: 'SPEC', defaultValue: '/home/harshitar@dayalgroup.hq/Desktop/Jenkins_Demo/checko-cypress-MAJ0224_Harshita/cypress/e2e/WebApplications/Test.cy.js', description: 'Enter the file')
         choice(name: 'BROWSER', choices: ['chrome', 'edge', 'firefox'], description: 'Choose the browser')
     }
+  
     stages {
         stage('Building') {
             steps {
@@ -18,6 +19,7 @@ pipeline {
                 sh 'npx cypress install'
             }
         }
+      
         stage('Testing') {
             steps {
                 script {
@@ -26,7 +28,7 @@ pipeline {
                     env.DISPLAY = ':99'
                     
                     // Run Cypress with Xvfb
-                    sh "npx cypress run --browser=chrome --spec ${params.SPEC}"
+                    sh "npx cypress run --browser=${params.BROWSER} --spec ${params.SPEC}"
                 }
             }
         }
@@ -37,6 +39,7 @@ pipeline {
             }
         }
     }
+  
     post {
         always {
             publishHTML([
