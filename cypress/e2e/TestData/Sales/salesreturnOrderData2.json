@@ -1,0 +1,34 @@
+[
+    {
+        "HE/WOR/23-24/00004": {
+            "SRO_No": "HE/WOR/23-24/00004",
+            "Order_Date": "29-01-2024",
+            "Document_Series": "Standard",
+            "CustomerType": "End Customer",
+            "Customer": "Raju, Customer",
+            "Invoice_No": null,
+            "Remarks": "Dummy Received",
+            "IsMaterialReceive": "Yes",
+            "Receive_Date": "01-02-2024",
+            "MRDocument_Series": "Satndard",
+            "Vehicle_Source": "Self",
+            "Vehicle_Type": "Truck",
+            "Product_Details": [
+                {
+                    "Product_Name": "AALOO SHAKTI - UP",
+                    "Pack_Name": "50 Kg Bag [10 x 5 Kg]",
+                    "Return_Quantity": 5,
+                    "Received_Branch": "HE - Works (Head office)",
+                    "Batch_Details": []
+                },
+                {
+                    "Product_Name": "DAP 18:46",
+                    "Pack_Name": "DAP 50 Kg",
+                    "Return_Quantity": 1,
+                    "Received_Branch": "HE - Works (Head office)",
+                    "Batch_Details": []
+                }
+            ]
+        }
+    }
+]

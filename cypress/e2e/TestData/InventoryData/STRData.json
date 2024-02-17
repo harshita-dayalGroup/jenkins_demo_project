@@ -1,0 +1,25 @@
+[
+  {
+    "transferFromBranch": "HE - Works (Head office)",
+    "destinationBranch": "HE - Works (Head office)",
+    "strType": "Production",
+    "documentSeries":"Standard [HE_Wor]",
+    "productPackName": [
+      {
+        "name": "Fresh Milk Packet"
+      },
+      {
+        "name": "50 Kg Bag [10 x 5 Kg]"
+      }
+    ],
+    "numberOfPacks": "2",
+    "products": [
+      {
+        "name": "Cows Fresh Milk"
+      },
+      {
+        "name": "AALOO SHAKTI - UP"
+      }
+    ]
+  }
+]

@@ -1,0 +1,62 @@
+{
+    "debitNote": [
+        {
+            "products": [
+                {
+                    "name":"DAP 18:46",
+                    "packName":"DAP 50 Kg",
+                    "conversionType":"Count/Quantity",
+                    "quantity": "100"
+                    
+                },
+                {
+                    "name":"AALOO SHAKTI - UP",
+                    "packName":"50 Kg Bag [10 x 5 Kg]",
+                    "conversionType":"Count/Quantity",
+                    "quantity": "100"
+                }
+                
+            ]
+        }
+    ],
+    "creditNote": [
+        {
+            "products": [
+                {
+                    "name":"Cows Fresh Milk",
+                    "packName":"Fresh Milk Packet",
+                    "conversionType":"Rate",
+                    "rate": "10"
+                    
+                },
+                {
+                    "name":"AALOO SHAKTI - UP",
+                    "packName":"50 Kg Bag [10 x 5 Kg]",
+                    "conversionType":"Count/Quantity",
+                    "quantity": "100"
+                }
+                
+            ]
+        }
+    ],
+    "creditNoteWithGST": [
+        {
+            "products": [
+                {
+                    "name":"Cows Fresh Milk",
+                    "packName":"Fresh Milk Packet",
+                    "conversionType":"Rate",
+                    "rate": "10"
+                    
+                },
+                {
+                    "name":"DAP 18:46",
+                    "packName":"DAP 50 Kg",
+                    "conversionType":"Count/Quantity",
+                    "quantity": "100"
+                }
+                
+            ]
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+[
+    {
+        "SalesOrder": {
+            "basicdetails": {
+                "customerType": "End Customer",
+                "partyName": "Avinash Sharma | End Customer | Vendor",
+                "placedBy": "Harshita Rohilla (harshitar) | Ahmedabad | Admin"
+            },
+            "orderDetails": [
+                {
+                    "product": "Cows Fresh Milk",
+                    "productPack": "Fresh Milk Packet",
+                    "productQuantity": "10",
+                    "dispatch_branch": "HE - Works (Head office)",
+                    "warehouse_branch": "HE - Works (Head office)"
+                },
+                {
+                    "product": "DAP 18:46",
+                    "productPack": "DAP 50 Kg",
+                    "productQuantity": "10",
+                    "dispatch_branch": "HE - Works (Head office)",
+                    "warehouse_branch": "HE - Works (Head office)"
+                },
+                {
+                    "product":"AALOO SHAKTI - UP",
+                    "productPack": "50 Kg Bag [10 x 5 Kg]",
+                    "productQuantity": "10",
+                    "dispatch_branch": "HE - Works (Head office)",
+                    "warehouse_branch": "HE - Works (Head office)"
+
+                }
+                
+            ]
+        }
+    }
+]

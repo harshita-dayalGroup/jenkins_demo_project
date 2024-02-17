@@ -1,0 +1,26 @@
+[
+    {
+        "SalesReturnOrder1": {
+            "basicdetails": {
+                "customerType": "End Customer",
+                "partyName": "Avinash Sharma"
+                
+            },
+            "returnorderdetails": [
+                {
+                    "productName": "Cows Fresh Milk",
+                    "returnQuantity": "1",
+                    "branch":"HE - Works (Head office)"
+                },
+                {
+                    "productName": "AALOO SHAKTI - UP",
+                    "returnQuantity": "1",
+                    "branch":"HE - Works (Head office)"
+                }
+                
+            ]
+        }
+    }
+   
+   
+]

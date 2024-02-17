@@ -1,0 +1,30 @@
+[
+    {
+        "buyer": "Harshita",
+        "vendor": "Big Basket",
+        "vendorReferenceNo": "VERFNO20",
+        "quotationRefNo": "QRN908",
+        "purchaseOrder": [
+            {
+                "productName": "Cows Fresh Milk",
+                "productPackName": "Fresh Milk Packet",
+                "numberOfPacks": "7",
+                "deliveryAt": "Customer",
+                "deliveryName": "Avinash Sharma",
+                "deliveryDate": "30-11-2023",
+                "paymentTerm": "PurchaseTerms"
+            },
+            {
+                "productName": "DAP 18:46",
+                "productPackName": "DAP 50 Kg",
+                "numberOfPacks": "7",
+                "deliveryAt": "Customer",
+                "deliveryName": "Avinash Sharma",
+                "deliveryDate": "30-11-2023",
+                "paymentTerm": "PurchaseTerms",
+                "isBatchDetailsReq":"NO"
+                
+            }
+        ]
+    }
+]

@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-09T11:40:02.031Z",
+    "end": "2022-12-09T11:40:02.707Z",
+    "duration": 676,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "935259c9-8942-493c-a316-a73a1446274d",
+      "title": "",
+      "fullFile": "cypress/e2e/APItest/getAPI.cy.js",
+      "file": "cypress/e2e/APItest/getAPI.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0f980c8d-1e1f-4d13-8846-60c03ecf8558",
+          "title": "API Testing",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "API-GET-tbl_party",
+              "fullTitle": "API Testing API-GET-tbl_party",
+              "timedOut": null,
+              "duration": 616,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  Method: 'GET',\n  url: 'http://192.168.0.16/mSATHI/api/scms.php',\n  body: {\n    params: {\n      \"model\": \"Party\",\n      \"actionModel\": \"Default\",\n      \"intEmpId\": \"1\",\n      \"page\": \"\",\n      \"last_sync_date\": \"2021-04-12 10:11:00\",\n      \"appName\": \"order_app\",\n      \"appNameForService\": \"order_app\",\n      \"appVersion\": \"20.51.96\",\n      \"access-token\": \"yybFY9j16RPEhN--OCQbheVIulUteYdt\",\n      \"clientId\": \"5\",\n      \"action\": \"\",\n      \"requestType\": \"GET\",\n      \"primaryKey\": \"\",\n      \"intCustomerUserId\": 2,\n      \"intCustomerUserDeviceId\": 0,\n      \"intApplicationId\": 0,\n      \"expand\": \"tbl_address#int_address_id, tbl_address#int_billing_address_id, tbl_address#int_shipping_address_id, tbl_party_regn#int_party_id, tbl_party_organisation#int_party_id, tbl_party_branch#int_party_id, tbl_party_branch_tax_category#int_party_id, tbl_party_employee#int_party_id\"\n    }\n  }\n}).then(res => {\n  cy.log(res.body.response[0].txt_name);\n  expect(res.status).to.eq(200);\n  expect(res.body.response[0].txt_name).to.eq('Cash Sale');\n});",
+              "err": {},
+              "uuid": "b8661552-eefc-42bb-8b11-48241c5822fc",
+              "parentUUID": "0f980c8d-1e1f-4d13-8846-60c03ecf8558",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b8661552-eefc-42bb-8b11-48241c5822fc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 616,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+[
+    {
+        "basicDetails": {
+            "party": "Avinash Sharma",
+            "vehicleSource": "Self",
+            "vehicleType": "Truck",
+            "IsInvoiceBeforeQC": 0
+        },
+        "materialReceiveDetails": {
+            "OrderDetails": [
+                {
+                    "productName": "Cows Fresh Milk",
+                "returnQuantity": "1",
+                "branch": "HE - Works (Head office)",
+                "Istransfer": 1,
+                "transferBranch": "HE - HE-Kolkata (Head office)",
+                "qualityCheckDetails": {
+                    "physicalCheck": {
+                        "quantity": "1",
+                        "stockType": "OK"
+                    },
+                    "labCheck": {
+                        "quantity": "1",
+                        "stockType": "Bad"
+                    }
+                }
+
+                },
+                {
+                    "productName": "AAL00 SHAKTI - UP",
+                "returnQuantity": "1",
+                "branch": "HE - Works (Head office)",
+                "Istransfer": 0,
+                "transferBranch": "HE - HE-Kolkata (Head office)",
+                "qualityCheckDetails":{
+                    "physicalCheck": {
+                        "quantity": "",
+                        "stockType": ""
+                    }
+
+                }
+                }
+                
+            ]
+            
+        }
+    }
+]

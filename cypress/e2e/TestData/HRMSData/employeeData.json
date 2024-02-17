@@ -1,0 +1,49 @@
+[
+    {
+        "employee1": {
+            "basicdetails": {
+                "name": "Rajesh1",
+                "mobileNo": "9087677886",
+                "email": "rajesh1@gmail.com",
+                "fatherName": "Shivesh",
+                "motherName": "Parvashi",
+                "gender": "Male",
+                "maritalStatus": "Single",
+                "dateOfBirth": "04-07-2001"
+            },
+            "presentAddress": {
+                "street": "Street1",
+                "country": "India",
+                "state": "Uttar Pradesh",
+                "district": "Meerut",
+                "city": "Meerut (City)",
+                "pincode": "201204"
+            },
+            "permanentAddress":{
+                "street": "Street3",
+                "country": "India",
+                "state": "Uttar Pradesh",
+                "district": "Meerut",
+                "city": "Meerut (City)",
+                "pincode": "201204"
+            },
+            "employmentdetails": {
+                "division": "Main",
+                "organisation": "Harshita Enterprises (HE)",
+                "branch": "HE - Works (Head Office)",
+                "department": "Administration",
+                "grade": "Owner->O1",
+                "designation": "Owner",
+                "employeeStatus": "Regular",
+                "function": "Sales",
+                "postingPlace": "Meerut",
+                "regionDistrict": "Allahabad",
+                "reportingOfficer": "Harshita Rohilla (harshitar) | HE | Admin | Meerut",
+                "dateOfJoining": "01/11/2023",
+                "probationPeriod": "11",
+                "noticePeriod": "90"
+            }
+        }
+    }
+  
+]

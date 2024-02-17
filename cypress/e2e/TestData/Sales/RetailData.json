@@ -1,0 +1,27 @@
+[
+    {
+       "discount":"10",
+       "deliveryMode":"Home Delivery",
+       "retailOrder":[
+        {
+            "productPackName":"Cows Fresh Milk | Fresh Milk Packet",
+            "count":"5",
+            "discountRate":"1.54",
+            "rate": "60"
+        },
+        {
+            "productPackName":"DAP 18:46 | DAP 50 Kg",
+            "count":"5",
+            "discountRate":"1.54",
+            "rate": "60"
+        },
+        {
+            "productPackName":"AALOO SHAKTI - UP | 50 Kg Bag [10 x 5 Kg]",
+            "count":"5",
+            "discountRate":"1.54",
+            "rate": "60"
+        }
+
+       ]
+    }
+]

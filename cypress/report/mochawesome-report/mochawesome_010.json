@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-02-13T10:54:24.647Z",
+    "end": "2023-02-13T10:54:38.974Z",
+    "duration": 14327,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "04137514-2937-40d9-b11d-a3e163ede532",
+      "title": "",
+      "fullFile": "cypress/e2e/WebApplications/Dummy.cy.js",
+      "file": "cypress/e2e/WebApplications/Dummy.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "eb8889e5-7079-4176-9bd6-9edeea19545f",
+          "title": "Regression Checklist",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ele.text() is not working",
+              "fullTitle": "Regression Checklist Ele.text() is not working",
+              "timedOut": null,
+              "duration": 11969,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('http://192.168.0.16/SATHI/Sales/index.php/invoice/index');\ncy.get('[href=\"/mSATHI/Sales/index.php/invoice/create?intDocumentType=211\"]').click({\n  force: true\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[href=\"/mSATHI/Sales/index.php/invoice/create?intDocumentType=211\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[href=\"/mSATHI/Sales/index.php/invoice/create?intDocumentType=211\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/WebApplications/Dummy.cy.js:77:5)",
+                "diff": null
+              },
+              "uuid": "207c84b1-de97-453c-aceb-d084b0f4133e",
+              "parentUUID": "eb8889e5-7079-4176-9bd6-9edeea19545f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "207c84b1-de97-453c-aceb-d084b0f4133e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 11969,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

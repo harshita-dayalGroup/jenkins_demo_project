@@ -1,0 +1,25 @@
+{
+  "name": "Cypress_Project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "allure-report": "cypress run --browser chrome --spec cypress/e2e/APItest/GetAPIs/Sales_Order/getAPI.cy.js --env allure=true",
+    "generate-allure-report": "allure generate allure-results --clean -o allure-report",
+    "generate-final-report": "npm run allure-report && npm run generate-allure-report && npm allure open"
+  },
+  "keywords": [],
+  "author": "Vishal Gupta",
+  "license": "ISC",
+  "dependencies": {
+    "cypress-plugin-api": "^2.9.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0"
+  },
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.34.0",
+    "cypress": "^12.2.0",
+    "cypress-file-upload": "^5.0.8"
+  }
+}

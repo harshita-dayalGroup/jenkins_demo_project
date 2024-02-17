@@ -1,0 +1,28 @@
+[
+    {
+        "rate": {
+            "name": "Rating Saling",
+            "applicableOn": "Sale",
+            "IsItMrp": 0,
+            "IsItFinalPrice": 1,
+            "selectDate":"15/02/2024",
+            "partyName": "Avinash Sharma",
+            "productNames": [
+                {
+                    "productName": "Cows Fresh Milk",
+                    "productPack": "Fresh Milk Pack",
+                    "rate": "40"
+                   
+                },
+                {
+                    "productName": "DAP 18:46",
+                    "productPack":"DAP 50 Kg",
+                    "rate":"45"
+
+                   
+                }
+             
+            ]
+        }
+    }
+]

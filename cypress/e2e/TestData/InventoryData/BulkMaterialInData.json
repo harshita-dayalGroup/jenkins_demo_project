@@ -1,0 +1,21 @@
+{
+    "documentSeries": "Standard",
+    "date":"17-01-2023",
+    "products": [
+        {
+            "name": "Cows Fresh Milk | Fresh Milk Packet",
+            "rate": 19.99,
+            "noOfPacks": 100
+        },
+        {
+            "name": "Anmol 1011 Rice Seeds | Anmol 1011 Rice Seeds",
+            "rate": 29.99,
+            "noOfPacks": 50
+        },
+        {
+            "name": "DAP 18:46 | DAP 50 Kg",
+            "rate": 9.99,
+            "noOfPacks": 200
+        }
+    ]
+}

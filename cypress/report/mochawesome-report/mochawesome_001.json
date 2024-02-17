@@ -1,0 +1,445 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 15,
+    "passes": 2,
+    "pending": 1,
+    "failures": 12,
+    "start": "2022-12-09T12:03:30.449Z",
+    "end": "2022-12-09T12:06:29.159Z",
+    "duration": 178710,
+    "testsRegistered": 16,
+    "passPercent": 13.333333333333334,
+    "pendingPercent": 6.25,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e73a9424-11a5-4d06-939c-ca6f091a0488",
+      "title": "",
+      "fullFile": "cypress/e2e/Test/Checko.cy.js",
+      "file": "cypress/e2e/Test/Checko.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+          "title": "Regression Checklist",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create Blank Database",
+              "fullTitle": "Regression Checklist Create Blank Database",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "3a8eb016-93ec-48de-b478-5638490e2119",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create Sales Order",
+              "fullTitle": "Regression Checklist Create Sales Order",
+              "timedOut": null,
+              "duration": 35711,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Localserver + 'Sales/index.php/order/index');\ncy.wait(1000);\ncy.get('#addButton > .svg-inline--fa > path').click({\n  force: true\n});\ncy.get('#select2-order-int_area_id-container').click();\ncy.get('.select2-dropdown > .select2-search > .select2-search__field').click(); //Assertions on area name via loop\ncy.get('li[role=option]').each(function ($ele, index, list) {\n  cy.log($ele.text());\n  if ($ele.text() === area_name) {\n    cy.wrap($ele).click();\n  } else {\n    cy.log('not found');\n  }\n});\ncy.get('#select2-order-int_party_id-container').click();\ncy.wait(1000);\ncy.get('li[role=option]').each(function ($ele, index) {\n  cy.log($ele.text());\n  if ($ele.text() === Party_name) {\n    cy.wrap($ele).click();\n  } else {\n    cy.log('not found');\n  }\n}); //cy.get('.select2-dropdown > .select2-search > .select2-search__field').type('Vina{enter}')\ncy.get('#select2-order-int_placed_by_employee_id-container').click({\n  force: true\n});\ncy.get('li[role=option]').each(function ($ele, index, list) {\n  cy.log($ele.text());\n  if ($ele.text() === Placed_By) {\n    cy.wrap($ele).click();\n  } else {\n    cy.log('not found');\n  }\n}); //cy.get('.select2-dropdown > .select2-search > .select2-search__field').type('Vish{enter}')\n//.should('have.value','nilesh')\ncy.get('.modal-footer > .btn').click();\ncy.wait(500);\ncy.get('.view > .text-dark > .svg-inline--fa').click();\ncy.get('#select2-orderdetail-0-int_product_id-container').click();\ncy.get('li[role=option]').each(function ($ele) {\n  cy.log($ele.text());\n  if ($ele.text() === Select_product) {\n    cy.wrap($ele).click();\n  } else {\n    cy.log('not found');\n  }\n}); //cy.get('.select2-search__field').type('DAP{enter}')\ncy.wait(400);\ncy.get('#select2-orderdetail-0-int_product_pack_id-container').click();\ncy.get('li[role=option]').each(function ($ele, index, list) {\n  //Below will do assertion and check if list contains the product\n  cy.log($ele.text()).should('contain', 'DAP');\n  if ($ele.text() === Select_pack) {\n    cy.wrap($ele).click();\n  } else {\n    cy.log('not found');\n  }\n}); //cy.get('.select2-search__field').type('DAP{enter}')\ncy.get('#orderdetail-0-dbl_quantity').type('1');\ncy.get('.modal-footer > .btn').click({\n  force: true\n});\ncy.wait(5000);\ncy.get('.breadcrumb-item > a').each(function ($ele) {\n  OrderNumber = $ele.text();\n  cy.log(OrderNumber);\n  cy.wait(2000);\n}); //Change status to final \ncy.get('.font-size-lg > .view > .svg-inline--fa').click({\n  force: true\n});\ncy.get('#select2-order-int_status_type-container').click();\ncy.get('li[role=option]').each(function ($ele, index) {\n  cy.log($ele.text());\n  if ($ele.text() === 'Final') {\n    cy.wrap($ele).click();\n    cy.get('#submitBtn').click();\n  } else {\n    cy.log('not found');\n  }\n});\ncy.wait(2000); //Change staus to PO confirm\ncy.get('.font-size-lg > .view > .svg-inline--fa').click({\n  force: true\n});\ncy.get('#select2-order-int_status_type-container').click();\ncy.get('li[role=option]').each(function ($ele, index) {\n  cy.log($ele.text());\n  if ($ele.text() === 'Confirmed') {\n    cy.wrap($ele).click();\n    cy.wait(1000);\n    cy.get('#submitBtn').click();\n    cy.wait(2000);\n  } else {\n    cy.log('not found');\n  }\n}); //Change status to Approved\ncy.get('.font-size-lg > .view > .svg-inline--fa').click({\n  force: true\n});\ncy.get('#select2-order-int_status_type-container').click();\ncy.get('li[role=option]').each(function ($ele, index) {\n  cy.log($ele.text());\n  if ($ele.text() === 'Approved') {\n    cy.wrap($ele).click();\n    cy.wait(1000);\n    cy.get('#submitBtn').click();\n    cy.wait(2000);\n  } else {\n    cy.log('not found');\n  }\n});\ncy.wait(2000);",
+              "err": {
+                "message": "CypressError: Timed out retrying after 4050ms: `cy.click()` failed because this element is detached from the DOM.\n\n`<span class=\"select2-selection__rendered\" id=\"select2-order-int_status_type-container\" role=\"textbox\" aria-readonly=\"true\">...</span>`\n\nCypress requires elements be attached in the DOM to interact with them.\n\nThe previous command that ran was:\n\n  > `cy.get()`\n\nThis DOM element likely became detached somewhere between the previous and current command.\n\nCommon situations why this happens:\n  - Your JS framework re-rendered asynchronously\n  - Your app code reacted to an event firing and removed the element\n\nYou typically need to re-query for the element or add 'guards' which delay Cypress from running new commands.\n\nhttps://on.cypress.io/element-has-detached-from-dom",
+                "estack": "CypressError: Timed out retrying after 4050ms: `cy.click()` failed because this element is detached from the DOM.\n\n`<span class=\"select2-selection__rendered\" id=\"select2-order-int_status_type-container\" role=\"textbox\" aria-readonly=\"true\">...</span>`\n\nCypress requires elements be attached in the DOM to interact with them.\n\nThe previous command that ran was:\n\n  > `cy.get()`\n\nThis DOM element likely became detached somewhere between the previous and current command.\n\nCommon situations why this happens:\n  - Your JS framework re-rendered asynchronously\n  - Your app code reacted to an event firing and removed the element\n\nYou typically need to re-query for the element or add 'guards' which delay Cypress from running new commands.\n\nhttps://on.cypress.io/element-has-detached-from-dom\n    at $Cy.ensureAttached (http://localhost/__cypress/runner/cypress_runner.js:161865:76)\n    at runAllChecks (http://localhost/__cypress/runner/cypress_runner.js:147670:12)\n    at retryActionability (http://localhost/__cypress/runner/cypress_runner.js:147750:16)\n    at tryCatcher (http://localhost/__cypress/runner/cypress_runner.js:13012:23)\n    at Promise.attempt.Promise.try (http://localhost/__cypress/runner/cypress_runner.js:10286:29)\n    at whenStable (http://localhost/__cypress/runner/cypress_runner.js:166931:65)\n    at http://localhost/__cypress/runner/cypress_runner.js:166385:14\n    at tryCatcher (http://localhost/__cypress/runner/cypress_runner.js:13012:23)\n    at Promise._settlePromiseFromHandler (http://localhost/__cypress/runner/cypress_runner.js:10947:31)\n    at Promise._settlePromise (http://localhost/__cypress/runner/cypress_runner.js:11004:18)\n    at Promise._settlePromise0 (http://localhost/__cypress/runner/cypress_runner.js:11049:10)\n    at Promise._settlePromises (http://localhost/__cypress/runner/cypress_runner.js:11129:18)\n    at Promise._fulfill (http://localhost/__cypress/runner/cypress_runner.js:11073:18)\n    at http://localhost/__cypress/runner/cypress_runner.js:12687:46\nFrom Your Spec Code:\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/e2e/Test/Checko.cy.js:7540:56)",
+                "diff": null
+              },
+              "uuid": "0abdd161-ce4c-4a28-b58a-86baa353aa5b",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Send Mail - Sales Order",
+              "fullTitle": "Regression Checklist Send Mail - Sales Order",
+              "timedOut": null,
+              "duration": 3835,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(QAServer + '/BusinessSettings/index.php/message/index');\ncy.get('.summary > :nth-child(2)').each(function ($ele) {\n  var x = parseInt($ele.text());\n  cy.log(x);\n  cy.get('[data-key=\"' + x + '\"] > [data-col-seq=\"4\"]').each(function ($ele, index, list) {\n    cy.log($ele.text()).should('contain', OrderNumber);\n  });\n});",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed because you are attempting to visit a URL that is of a different origin.\n\nYou likely forgot to use `cy.origin()`:\n\n`cy.visit('http://localhost/SATHI/index.php/site/login')`\n`<commands targeting http://localhost go here>`\n\n`cy.origin('http://192.168.0.16', () => {`\n`  cy.visit('http://192.168.0.16/eSATHI//BusinessSettings/index.php/message/index')`\n`  <commands targeting http://192.168.0.16 go here>`\n`})`\n\nThe new URL is considered a different origin because the following parts of the URL are different:\n\n  > superdomain\n\nYou may only `cy.visit()` same-origin URLs within a single test.\n\nThe previous URL you visited was:\n\n  > 'http://localhost'\n\nYou're attempting to visit this URL:\n\n  > 'http://192.168.0.16'\n\nhttps://on.cypress.io/cannot-visit-different-origin-domain",
+                "estack": "CypressError: `cy.visit()` failed because you are attempting to visit a URL that is of a different origin.\n\nYou likely forgot to use `cy.origin()`:\n\n`cy.visit('http://localhost/SATHI/index.php/site/login')`\n`<commands targeting http://localhost go here>`\n\n`cy.origin('http://192.168.0.16', () => {`\n`  cy.visit('http://192.168.0.16/eSATHI//BusinessSettings/index.php/message/index')`\n`  <commands targeting http://192.168.0.16 go here>`\n`})`\n\nThe new URL is considered a different origin because the following parts of the URL are different:\n\n  > superdomain\n\nYou may only `cy.visit()` same-origin URLs within a single test.\n\nThe previous URL you visited was:\n\n  > 'http://localhost'\n\nYou're attempting to visit this URL:\n\n  > 'http://192.168.0.16'\n\nhttps://on.cypress.io/cannot-visit-different-origin-domain\n    at cannotVisitDifferentOrigin (http://localhost/__cypress/runner/cypress_runner.js:155531:72)\n    at http://localhost/__cypress/runner/cypress_runner.js:156549:20\n    at tryCatcher (http://localhost/__cypress/runner/cypress_runner.js:13012:23)\n    at Promise._settlePromiseFromHandler (http://localhost/__cypress/runner/cypress_runner.js:10947:31)\n    at Promise._settlePromise (http://localhost/__cypress/runner/cypress_runner.js:11004:18)\n    at Promise._settlePromise0 (http://localhost/__cypress/runner/cypress_runner.js:11049:10)\n    at Promise._settlePromises (http://localhost/__cypress/runner/cypress_runner.js:11129:18)\n    at _drainQueueStep (http://localhost/__cypress/runner/cypress_runner.js:7719:12)\n    at _drainQueue (http://localhost/__cypress/runner/cypress_runner.js:7712:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost/__cypress/runner/cypress_runner.js:7728:5)\n    at Async.drainQueues (http://localhost/__cypress/runner/cypress_runner.js:7598:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/e2e/Test/Checko.cy.js:7556:8)",
+                "diff": null
+              },
+              "uuid": "02ae01a1-a3c2-4a0d-b771-2a9ea35fbea6",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create Dispatch",
+              "fullTitle": "Regression Checklist Create Dispatch",
+              "timedOut": null,
+              "duration": 17430,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Localserver + '/Inventory/index.php/delivery/index');\ncy.wait(500);\ncy.get('.top_btn > .view').click({\n  force: true\n});\ncy.get('#freight-int_vehicle_source_type').select('Self');\ncy.get('#delivery-int_vehicle_type').select('Truck');\ncy.get('#submitBtn').click();\ncy.wait(500);\ncy.get('.top_btn > .view').click();\ncy.get(':nth-child(1) > :nth-child(2) > .input-group > .form-control').type(OrderNumber);\ncy.get('[type=\"checkbox\"]').first().check({\n  force: true\n});\ncy.get('td.dispatch-branch > select.dispatch').select('VEW - Partapur (Head office)');\ncy.get('td.warehouse-branch > select.warehouse').select('VEW - Partapur (Head office)');\ncy.get('#submitBtn').click({\n  force: true\n});\ncy.get('.box-header > .d-flex > :nth-child(3) > .badge > [data-bs-toggle=\"tooltip\"]').each(function ($ele) {\n  ChallanNumber = $ele.text();\n  cy.log(ChallanNumber);\n  cy.wait(2000);\n}); //Change status to final \ncy.get('.font-size-lg > .view > .svg-inline--fa > path').click({\n  force: true\n});\ncy.get('#select2-delivery-int_status_type-container').click();\ncy.get('li[role=option]').each(function ($ele, index) {\n  cy.log($ele.text());\n  if ($ele.text() === 'Final') {\n    cy.wrap($ele).click();\n    cy.get('#submitBtn').click();\n  } else {\n    cy.log('not found');\n  }\n});\ncy.wait(2000); //Change staus to Approved\ncy.get('.font-size-lg > .view > .svg-inline--fa > path').click({\n  force: true\n});\ncy.get('#select2-delivery-int_status_type-container').click();\ncy.get('li[role=option]').each(function ($ele, index) {\n  cy.log($ele.text());\n  if ($ele.text() === 'Approved') {\n    cy.wrap($ele).click();\n    cy.wait(1000);\n    cy.get('#submitBtn').click();\n    cy.wait(2000);\n  } else {\n    cy.log('not found');\n  }\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying after 4050ms: `cy.click()` failed because this element is detached from the DOM.\n\n`<a class=\"view btn btn-flat btn-primary btn-md \" value=\"/SATHI/Inventory/index.php/delivery/basic-details\" href=\"javascript:void(0);\" title=\"Delivery - Basic Details\">...</a>`\n\nCypress requires elements be attached in the DOM to interact with them.\n\nThe previous command that ran was:\n\n  > `cy.get()`\n\nThis DOM element likely became detached somewhere between the previous and current command.\n\nCommon situations why this happens:\n  - Your JS framework re-rendered asynchronously\n  - Your app code reacted to an event firing and removed the element\n\nYou typically need to re-query for the element or add 'guards' which delay Cypress from running new commands.\n\nhttps://on.cypress.io/element-has-detached-from-dom",
+                "estack": "CypressError: Timed out retrying after 4050ms: `cy.click()` failed because this element is detached from the DOM.\n\n`<a class=\"view btn btn-flat btn-primary btn-md \" value=\"/SATHI/Inventory/index.php/delivery/basic-details\" href=\"javascript:void(0);\" title=\"Delivery - Basic Details\">...</a>`\n\nCypress requires elements be attached in the DOM to interact with them.\n\nThe previous command that ran was:\n\n  > `cy.get()`\n\nThis DOM element likely became detached somewhere between the previous and current command.\n\nCommon situations why this happens:\n  - Your JS framework re-rendered asynchronously\n  - Your app code reacted to an event firing and removed the element\n\nYou typically need to re-query for the element or add 'guards' which delay Cypress from running new commands.\n\nhttps://on.cypress.io/element-has-detached-from-dom\n    at $Cy.ensureAttached (http://localhost/__cypress/runner/cypress_runner.js:161865:76)\n    at runAllChecks (http://localhost/__cypress/runner/cypress_runner.js:147670:12)\n    at retryActionability (http://localhost/__cypress/runner/cypress_runner.js:147750:16)\n    at tryCatcher (http://localhost/__cypress/runner/cypress_runner.js:13012:23)\n    at Promise.attempt.Promise.try (http://localhost/__cypress/runner/cypress_runner.js:10286:29)\n    at whenStable (http://localhost/__cypress/runner/cypress_runner.js:166931:65)\n    at http://localhost/__cypress/runner/cypress_runner.js:166385:14\n    at tryCatcher (http://localhost/__cypress/runner/cypress_runner.js:13012:23)\n    at Promise._settlePromiseFromHandler (http://localhost/__cypress/runner/cypress_runner.js:10947:31)\n    at Promise._settlePromise (http://localhost/__cypress/runner/cypress_runner.js:11004:18)\n    at Promise._settlePromise0 (http://localhost/__cypress/runner/cypress_runner.js:11049:10)\n    at Promise._settlePromises (http://localhost/__cypress/runner/cypress_runner.js:11129:18)\n    at Promise._fulfill (http://localhost/__cypress/runner/cypress_runner.js:11073:18)\n    at http://localhost/__cypress/runner/cypress_runner.js:12687:46\nFrom Your Spec Code:\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/e2e/Test/Checko.cy.js:7576:32)",
+                "diff": null
+              },
+              "uuid": "6e61ef07-aa8a-4d65-8e82-473d30243701",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Loading Slip Preview",
+              "fullTitle": "Regression Checklist Loading Slip Preview",
+              "timedOut": null,
+              "duration": 9567,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Localserver + 'Inventory/index.php/delivery/index');\ncy.get('[data-key=\"91\"] > [style=\"vertical-align:middle;\"] > .dropdown > .btn').click({\n  force: true\n});\ncy.get('[data-key=\"91\"] > [style=\"vertical-align:middle;\"] > .dropdown > .dropdown-menu > :nth-child(3) > a').click();\ncy.get('#w6  .modal-dialog  .modal-content  .modal-footer  .bootstrap-dialog-footer  .bootstrap-dialog-footer-buttons .btn-warning').click();\ncy.get('body').should('not.contain', 'Exception (Database Exception)');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-key=\"91\"] > [style=\"vertical-align:middle;\"] > .dropdown > .btn`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-key=\"91\"] > [style=\"vertical-align:middle;\"] > .dropdown > .btn`, but never found it.\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/e2e/Test/Checko.cy.js:7627:8)",
+                "diff": null
+              },
+              "uuid": "fa32c6df-ee7d-49e2-a167-8b082920f71d",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Send Mail - Dispatch",
+              "fullTitle": "Regression Checklist Send Mail - Dispatch",
+              "timedOut": null,
+              "duration": 4937,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Localserver + '/BusinessSettings/index.php/message/index');\ncy.get('.summary > :nth-child(2)').each(function ($ele) {\n  var x = parseInt($ele.text());\n  cy.log(x);\n  cy.get('[data-key=\"' + x + '\"] > [data-col-seq=\"4\"]').each(function ($ele, index, list) {\n    cy.log($ele.text()).should('contain', ChallanNumber);\n  });\n});",
+              "err": {
+                "message": "AssertionError: expected '<td.w3>' to contain undefined",
+                "estack": "AssertionError: expected '<td.w3>' to contain undefined\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/e2e/Test/Checko.cy.js:7640:29)",
+                "diff": null
+              },
+              "uuid": "e27ddd9c-b8a5-4d5c-8aa4-cf8bbc158e32",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create Invoice",
+              "fullTitle": "Regression Checklist Create Invoice",
+              "timedOut": null,
+              "duration": 9027,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Localserver + 'Sales/index.php/invoice/index');\ncy.get('[href=\"/eSATHI/Sales/index.php/invoice/create?intDocumentType=211\"]').click({\n  force: true\n});\ncy.get('.box-body > .input-group > .form-control').type('VEW/PTPR/22-23/00036');\ncy.get('.display-inline-block > .col-md-1 > .delivery-note').first().check({\n  force: true\n});\ncy.get('.payment-term-cls').select('Standard');\ncy.get(':nth-child(3) > .btn').click();\ncy.get('.top_btn > .btn-primary').click({\n  force: true\n});\ncy.wait(1000);\ncy.get('.breadcrumb-item > a').each(function ($ele) {\n  InvoiceNumber = $ele.text();\n  cy.log(InvoiceNumber);\n  cy.wait(2000);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[href=\"/eSATHI/Sales/index.php/invoice/create?intDocumentType=211\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[href=\"/eSATHI/Sales/index.php/invoice/create?intDocumentType=211\"]`, but never found it.\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/e2e/Test/Checko.cy.js:7646:8)",
+                "diff": null
+              },
+              "uuid": "0dd96a11-0080-45a5-b61a-cf19cecc1655",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Invoice Preview",
+              "fullTitle": "Regression Checklist Invoice Preview",
+              "timedOut": null,
+              "duration": 10877,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Localserver + 'Sales/index.php/invoice/index');\ncy.wait(200);\ncy.get('[data-col-seq=\"2\"] > .form-control').click({\n  force: true\n}).type(InvoiceNumber + '{enter}');\ncy.get('.dropdown > .btn').click({\n  force: true\n});\ncy.get(':nth-child(13) > .dropdown > .dropdown-menu > :nth-child(4) > a').click({\n  force: true\n});\ncy.wait(1500);\ncy.get('#w6  .modal-dialog  .modal-content  .modal-footer  .bootstrap-dialog-footer  .bootstrap-dialog-footer-buttons .btn-warning').click();\ncy.get('body').should('not.contain', 'Exception (Database Exception)');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.dropdown > .btn`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.dropdown > .btn`, but never found it.\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/e2e/Test/Checko.cy.js:7671:8)",
+                "diff": null
+              },
+              "uuid": "280d419c-838f-4204-a626-cd2c5e234f52",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "SATHI support ticket",
+              "fullTitle": "Regression Checklist SATHI support ticket",
+              "timedOut": null,
+              "duration": 11803,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Localserver + 'index.php/customer-care/sathi-support-list');\ncy.get('#modalButton').click({\n  force: true\n});\ncy.get('#scribble_subject').type('This is ticket from web'); //cy.get('.mb-3 > .select2 > .selection > .select2-selection > .select2-selection__rendered > .select2-search > .select2-search__field').click()\ncy.get('.modal-footer > .btn').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#scribble_subject`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#scribble_subject`, but never found it.\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/e2e/Test/Checko.cy.js:7687:8)",
+                "diff": null
+              },
+              "uuid": "b0778e97-5907-4093-a4e4-34788583873e",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Helpdesk Ticket",
+              "fullTitle": "Regression Checklist Helpdesk Ticket",
+              "timedOut": null,
+              "duration": 4011,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "let To = 'Abhishek Tyagi';\ncy.visit(Localserver + 'index.php/customer-care/helpdesk-list');\ncy.wait(2000);\ncy.get('.float-end > .view > .svg-inline--fa').click({\n  force: true\n});\ncy.get('#select2-pmsscribble-txtscribbleprojectuser-container').click();\ncy.get('li[role=option]').each(function ($ele, index, list) {\n  if ($ele.text() === To) {\n    cy.wrap($ele).click();\n  } else {\n    cy.log('not found');\n  }\n});\ncy.get('#scribble_subject').type('This is helpdesk ticket from web');\ncy.get('.modal-footer > .btn').click(); //cy.get('#w10-success-0').should('contain','sucess')\ncy.get('[data-notify=\"message\"]').should('contain', 'successful');",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost/SATHI/index.php/customer-care/helpdesk-list\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost/SATHI/index.php/customer-care/helpdesk-list\n\nThe response we received from your web server was:\n\n  > 500: Internal Server Error\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n    at http://localhost/__cypress/runner/cypress_runner.js:156624:84\n    at visitFailedByErr (http://localhost/__cypress/runner/cypress_runner.js:155945:12)\n    at http://localhost/__cypress/runner/cypress_runner.js:156604:13\n    at tryCatcher (http://localhost/__cypress/runner/cypress_runner.js:13012:23)\n    at Promise._settlePromiseFromHandler (http://localhost/__cypress/runner/cypress_runner.js:10947:31)\n    at Promise._settlePromise (http://localhost/__cypress/runner/cypress_runner.js:11004:18)\n    at Promise._settlePromise0 (http://localhost/__cypress/runner/cypress_runner.js:11049:10)\n    at Promise._settlePromises (http://localhost/__cypress/runner/cypress_runner.js:11125:18)\n    at _drainQueueStep (http://localhost/__cypress/runner/cypress_runner.js:7719:12)\n    at _drainQueue (http://localhost/__cypress/runner/cypress_runner.js:7712:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost/__cypress/runner/cypress_runner.js:7728:5)\n    at Async.drainQueues (http://localhost/__cypress/runner/cypress_runner.js:7598:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/e2e/Test/Checko.cy.js:7694:8)",
+                "diff": null
+              },
+              "uuid": "07ec9d1d-b2d3-4ea0-a29b-0a46f8caef2e",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create Retail",
+              "fullTitle": "Regression Checklist Create Retail",
+              "timedOut": null,
+              "duration": 9755,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Localserver + 'Sales/index.php/retail-order/retail-list');\ncy.wait(1000);\ncy.get('[href=\"/eSATHI/Sales/index.php/retail-order/create\"]').click({\n  force: true\n});\ncy.get('#select2-invoicedetail-0-int_product_pack_id-container').click();\ncy.wait(1000);\ncy.get('li[role=option]').each(function ($ele, index) {\n  cy.log($ele.text());\n  if ($ele.text() === 'DAP 18:46 | DAP 50 Kg') {\n    cy.wrap($ele).click();\n  } else {\n    cy.log('not found');\n  }\n});\ncy.get('#invoicedetail-0-dbl_quantity').type('2{enter}');\ncy.get('.dropdown > .btn').click();\ncy.wait(750);\ncy.get('[data-notify=\"message\"]').should('contain', 'Successfully');\ncy.get('.top_btn > .dropdown > .dropdown-menu > :nth-child(2) > a').click().should('not.contain', 'Exception (Database Exception)');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[href=\"/eSATHI/Sales/index.php/retail-order/create\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[href=\"/eSATHI/Sales/index.php/retail-order/create\"]`, but never found it.\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/e2e/Test/Checko.cy.js:7715:8)",
+                "diff": null
+              },
+              "uuid": "64bcf147-4e7e-448f-b0d3-31b99a81a5d5",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Retail Preview",
+              "fullTitle": "Regression Checklist Retail Preview",
+              "timedOut": null,
+              "duration": 8772,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Localserver + 'Sales/index.php/retail-order/retail-list');\ncy.get('tr[data-key=\"66\"] > :nth-child(10) > .dropdown > .btn').click({\n  force: true\n});\ncy.get('tr[data-key=\"66\"] > :nth-child(10) > .dropdown > .dropdown-menu > :nth-child(3) > a').click();\ncy.wait(1500);\ncy.get('body').should('not.contain', 'Exception (Database Exception)');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `tr[data-key=\"66\"] > :nth-child(10) > .dropdown > .btn`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `tr[data-key=\"66\"] > :nth-child(10) > .dropdown > .btn`, but never found it.\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/e2e/Test/Checko.cy.js:7737:8)",
+                "diff": null
+              },
+              "uuid": "78103802-9837-4e45-bad0-b2752f6f3508",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Import Product",
+              "fullTitle": "Regression Checklist Import Product",
+              "timedOut": null,
+              "duration": 14487,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Localserver + 'index.php/import/product-master');\ncy.get('#select2-product-int_organisation_id-container').click();\ncy.get('li[role=option]').each(function ($ele, index) {\n  if ($ele.text() === 'Vishal Engineering Works (VEW)') {\n    cy.wrap($ele).click();\n  } else {\n    cy.log('not found');\n  }\n});\ncy.get('#product-file').attachFile('mSATHI-Product-PackSheetNew.csv');\ncy.get('.text-end > .btn-sm').click();\ncy.wait(500);\ncy.get('[data-notify=\"message\"]').should('contain', 'successful');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-notify=\"message\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-notify=\"message\"]`, but never found it.\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/e2e/Test/Checko.cy.js:7757:39)",
+                "diff": null
+              },
+              "uuid": "98c63e95-3d3f-437d-9922-deb2e819338b",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Import Customer",
+              "fullTitle": "Regression Checklist Import Customer",
+              "timedOut": null,
+              "duration": 16608,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Localserver + 'index.php/import/customer');\ncy.get('#select2-party-int_organisation_id-container').click();\ncy.get('li[role=option]').each(function ($ele, index) {\n  if ($ele.text() === 'Vishal Engineering Works (VEW)') {\n    cy.wrap($ele).click();\n  } else {\n    cy.log('not found');\n  }\n});\ncy.get('#select2-party-int_customer_type-container').click();\ncy.get('li[role=option]').each(function ($ele, index) {\n  if ($ele.text() === 'Customer') {\n    cy.wrap($ele).click();\n  } else {\n    cy.log('not found');\n  }\n});\ncy.get('#select2-party-int_type_of_customer-container').click();\ncy.get('li[role=option]').each(function ($ele, index) {\n  if ($ele.text() === 'End Customer') {\n    cy.wrap($ele).click();\n  } else {\n    cy.log('not found');\n  }\n});\ncy.get('#party-file').attachFile('SampleData-CustomerMasterNew.csv');\ncy.get('.col-sm-12 > .btn-sm').click();\ncy.wait(500);\ncy.get('[data-notify=\"message\"]').should('contain', 'successful');\ncy.wait(2000);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-notify=\"message\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-notify=\"message\"]`, but never found it.\n    at Context.eval (http://localhost/__cypress/tests?p=cypress/e2e/Test/Checko.cy.js:7788:39)",
+                "diff": null
+              },
+              "uuid": "c5af63b7-192c-4ad0-ad52-d4e3c6c45875",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Import Rate",
+              "fullTitle": "Regression Checklist Import Rate",
+              "timedOut": null,
+              "duration": 8049,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Localserver + 'index.php/rate/index');\ncy.get('[value=\"/SATHI/index.php/rate/upload-file\"]').click();\ncy.get('#productratetemplateproduct-date').click();\ncy.get('[data-date=\"1670284800000\"]').click();\ncy.get('#productratetemplateproduct-txtfile').attachFile('Sale_Final Price_20221201171643.xls');\ncy.get('.modal-footer > .btn').click();\ncy.get('[data-notify=\"message\"]').should('contain', 'successful');",
+              "err": {},
+              "uuid": "4faeb72a-3e43-473f-b8e5-39473b2de96e",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Import Rate - Rate from other template",
+              "fullTitle": "Regression Checklist Import Rate - Rate from other template",
+              "timedOut": null,
+              "duration": 10745,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Localserver + 'index.php/rate/index');\ncy.get('[data-key=\"0\"] > [data-col-seq=\"1\"] > a').click();\ncy.wait(500);\ncy.get('a[value=\"/SATHI/index.php/rate/import-template?id=1\"] > .text-dark > b').click({\n  force: true\n});\ncy.get('#productratetemplate-int_product_rate_template_id').select(3);\ncy.get('#productratetemplate-date-kvdate > .input-group-text').click();\ncy.get('[data-date=\"1670284800000\"]').click();\ncy.get('#productratetemplate-datimport-kvdate > .input-group-text').click();\ncy.get('[data-date=\"1670284800000\"]').click();\ncy.get('.modal-footer > .btn').click();\ncy.wait(1000);\ncy.get('[data-notify=\"message\"]').should('contain', 'successful');",
+              "err": {},
+              "uuid": "59443c75-1030-46c9-9e01-b29cf7f7621e",
+              "parentUUID": "49e8f614-c2db-4f10-b826-e21ed264c6f9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4faeb72a-3e43-473f-b8e5-39473b2de96e",
+            "59443c75-1030-46c9-9e01-b29cf7f7621e"
+          ],
+          "failures": [
+            "0abdd161-ce4c-4a28-b58a-86baa353aa5b",
+            "02ae01a1-a3c2-4a0d-b771-2a9ea35fbea6",
+            "6e61ef07-aa8a-4d65-8e82-473d30243701",
+            "fa32c6df-ee7d-49e2-a167-8b082920f71d",
+            "e27ddd9c-b8a5-4d5c-8aa4-cf8bbc158e32",
+            "0dd96a11-0080-45a5-b61a-cf19cecc1655",
+            "280d419c-838f-4204-a626-cd2c5e234f52",
+            "b0778e97-5907-4093-a4e4-34788583873e",
+            "07ec9d1d-b2d3-4ea0-a29b-0a46f8caef2e",
+            "64bcf147-4e7e-448f-b0d3-31b99a81a5d5",
+            "78103802-9837-4e45-bad0-b2752f6f3508",
+            "98c63e95-3d3f-437d-9922-deb2e819338b",
+            "c5af63b7-192c-4ad0-ad52-d4e3c6c45875"
+          ],
+          "pending": [
+            "3a8eb016-93ec-48de-b478-5638490e2119"
+          ],
+          "skipped": [],
+          "duration": 175614,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
