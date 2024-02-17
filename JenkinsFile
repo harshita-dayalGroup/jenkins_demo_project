@@ -1,35 +1,42 @@
-pipeline{
+pipeline {
     agent any 
+    options {
+        ansicolor('xtrem')
+    }
     parameters {
-        string (name:SPEC ,defaultValue:"cypress/intgeration/**/**",description :"Enter the file")
-        choice(name:'BROWSER',choices:['chrome','edge','firefox'], description:"Choose the browser")
+        string(name: 'SPEC', defaultValue: 'cypress/integration/**/*.js', description: 'Enter the file')
+        choice(name: 'BROWSER', choices: ['chrome', 'edge', 'firefox'], description: 'Choose the browser')
     }
-}options{
-    ansicolor('xtrem')
-}
-stages{
-    stage('Building'){
-        steps{
-             echo "Building the Application"
-
+    stages {
+        stage('Building') {
+            steps {
+                echo 'Building the Application'
+            }
         }
-       
-    }
-    stage('Testing'){
-        steps{
-            sh"npm i"
-            sh "npx cypress open --browser =${BROWSER} --spec ${SPEC}"
+        stage('Testing') {
+            steps {
+                sh 'npm i'
+                sh "npx cypress open --browser=${params.BROWSER} --spec ${params.SPEC}"
+            }
         }
-    }
-    stage("Deploying"){
-          steps{
-             echo "Building the Application"
-
+        stage('Deploying') {
+            steps {
+                echo 'Deploying the Application'
+            }
         }
     }
-}
-post {
-    always{
-        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+    post {
+        always {
+            publishHTML([
+                allowMissing: false, 
+                alwaysLinkToLastBuild: false, 
+                keepAll: true, 
+                reportDir: 'cypress/report', 
+                reportFiles: 'index.html', 
+                reportName: 'HTML Report', 
+                reportTitles: '', 
+                useWrapperFileDirectly: true
+            ])
+        }
     }
 }
