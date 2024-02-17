@@ -11,16 +11,26 @@ pipeline {
                 echo 'Building the Application'
             }
         }
+        
+        stage('Prepare') {
+            steps {
+                sh 'npm install'
+                sh 'npx cypress install'
+            }
+        }
         stage('Testing') {
             steps {
-                sh 'Xvfb :99 -ac -screen 0 1280x1024x24 &'
+                script {
+                    // Start Xvfb
+                    sh 'Xvfb :99 -ac -screen 0 1280x1024x24 &'
                     env.DISPLAY = ':99'
                     
                     // Run Cypress with Xvfb
                     sh "npx cypress run --browser=chrome --spec ${params.SPEC}"
-                sh "npx cypress run --browser=${params.BROWSER} --spec ${params.SPEC}"
+                }
             }
         }
+      
         stage('Deploying') {
             steps {
                 echo 'Deploying the Application'
