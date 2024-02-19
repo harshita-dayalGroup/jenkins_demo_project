@@ -2,8 +2,8 @@
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false
 })
-import axios from 'axios';
-import { sendEmail } from './Email/email';
+// import axios from 'axios';
+// import { sendEmail } from './Email/email';
 import { ProductData } from '../TestData/MastersData/ProductData';
 import { LoginData } from '../TestData/LoginData';
 import { ApplicationUrl } from '../TestData/LoginData';
@@ -113,16 +113,16 @@ describe('Create Product Regression Suite', () => {
     productPage.clickAdditionalDetailsSaveButton()
     cy.wait(2000)
   })
-  after(() => {
-    // Make a request to the Express server to trigger email sending
-    axios.post('http://localhost:3000/send-email')
-        .then((response) => {
-            console.log(response.data.message, response.data.result);
-        })
-        .catch((error) => {
-            console.log('Error triggering email sending:', error.message);
-        });
-});
+//   after(() => {
+//     // Make a request to the Express server to trigger email sending
+//     axios.post('http://localhost:3000/send-email')
+//         .then((response) => {
+//             console.log(response.data.message, response.data.result);
+//         })
+//         .catch((error) => {
+//             console.log('Error triggering email sending:', error.message);
+//         });
+// });
 
 
 
