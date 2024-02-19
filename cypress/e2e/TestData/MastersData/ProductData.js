@@ -1,6 +1,6 @@
 export class ProductData{
-    productName = "Borodurt(48kg)"
-    productShortName = "Borodurt(48kg)"
+    productName = "Delta Pro"
+    productShortName = "Delta Pro"
     productType = "Products (Finished)"
     masterUnit = "Quintal"
     organisation = "Harshita Enterprises (HE)"

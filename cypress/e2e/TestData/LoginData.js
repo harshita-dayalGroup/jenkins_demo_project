@@ -7,5 +7,5 @@ export class ApplicationUrl {
 export class LoginData {
   username = 'harshitar'
   password = 'Admin@123'
-  orgcode = 'HE2'
+  orgcode = 'HE'
 }
