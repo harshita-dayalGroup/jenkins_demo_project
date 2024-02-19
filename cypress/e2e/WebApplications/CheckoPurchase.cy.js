@@ -73,7 +73,15 @@ describe("Purchase Order Regression Suite ", () => {
             purchaseOrderPage.clickOnBuyerDropDown()
             purchaseOrderPage.typeInSearchField(data.buyer)
             purchaseOrderPage.clickOnVendorDropDownField()
-            purchaseOrderPage.typeInSearchField(data.vendor)
+            cy.get('li[role=option]').each(function ($ele) {
+                if ($ele.text() === data.vendor) {
+                    cy.wrap($ele).click({ force: true })
+                }
+                else {
+                    cy.log('not found')
+                }
+            })
+           // purchaseOrderPage.typeInSearchField()
             cy.wait(1000)
 
             purchaseOrderPage.typeVendorReferenceNumber(data.vendorReferenceNo)
