@@ -2,7 +2,7 @@ pipeline {
     agent any
   
     parameters {
-        string(name: 'SPEC', defaultValue: '/var/lib/jenkins/workspace/Jenkins_Test_Project/cypress/e2e/WebApplications/CheckoProduct.cy.js', description: 'Enter the file')
+        string(name: 'SPEC', defaultValue: '/var/lib/jenkins/workspace/Jenkins_Test_Project/cypress/e2e/WebApplications/**', description: 'Enter the file')
         choice(name: 'BROWSER', choices: ['chrome', 'edge', 'firefox'], description: 'Choose the browser')
     }
   
